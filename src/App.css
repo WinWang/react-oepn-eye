@@ -1,61 +1,33 @@
-.App {
-    text-align: center;
-}
-
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
-}
-
-.App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-}
-
-.App-link {
-    color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+/*全局配置React-Vant主题属性*/
+:root:root {
+    --rv-button-primary-background-color: #ff3b14;
+    --rv-tabbar-item-active-color: #ff3b14;
+    --rv-nav-bar-background-color: #ff3b14;
+    --rv-nav-bar-text-color: white;
+    --rv-nav-bar-title-text-color: white;
+    --rv-tabs-nav-background-color: #ff3b14;
+    --rv-tabs-default-color: white;
+    --rv-tab-active-text-color:white;
+    --rv-tabs-bottom-bar-color:white;
+    --rv-tab-text-color:#888888;
 }
 
 .vertical-layout {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+}
+
+.vertical-content-layout {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .horizontal-layout {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: row;
 }
 
-.back-colored {
-    width: 750px;
-    color: #61dafb;
-    height: 750px;
-    background: #282c34;
-}
+
 
 

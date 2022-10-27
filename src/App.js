@@ -1,25 +1,29 @@
 import './App.css';
-import {NavLink, Route, Routes} from 'react-router-dom'
-import Home from './page/home'
-import About from './page/about'
+import React from "react"
+import {useRoutes} from 'react-router-dom'
+import routes from './route/routes'
+import Api from './network/apiservice'
+import {Toast, Dialog} from 'react-vant'
 
-function App() {
+
+const App = () => {
+    React.Component.prototype.$api = Api
+    React.Component.prototype.$toast = Toast
+    React.Component.prototype.$dialog = Dialog
+
+    const routeElement = useRoutes(routes)
     return (
         <div>
-            <div className="vertical-layout">
-                <div className="horizontal-layout">
-                    <NavLink to="/">Home </NavLink>
-                    <NavLink to="/about">About </NavLink>
-                </div>
-                <div className="vertical-layout">
-                    <Routes>
-                        <Route path="/" element={<Home/>}/>
-                        <Route path="/about" element={<About/>}/>
-                    </Routes>
-                </div>
+            <div>
+                {/*<Routes>*/}
+                {/*<Route path="/main" element={<Main/>}/>*/}
+                {/*</Routes>*/}
+                {/*动态路由表注册*/}
+                {routeElement}
             </div>
         </div>
-    );
+    )
 }
 
-export default App;
+
+export default App

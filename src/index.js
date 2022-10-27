@@ -8,6 +8,7 @@ import {BrowserRouter as Router} from 'react-router-dom'
 // 屏幕适配
 import 'lib-flexible';
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <Router>
