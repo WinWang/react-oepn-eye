@@ -6,7 +6,7 @@ const Hot = () => {
     const tabs = ["周排行", "月排行", "总排行"];
 
     return (
-        <div className="vertical-layout">
+        <div className="hot-vertical-layout">
             <NavBar title='热门' fixed={true} safeAreaInsetTop={true} leftArrow={null}/>
             <div className="top-empty-layout"/>
             <Tabs defaultActive={0} onChange={(name, tabIndex) => {
@@ -15,7 +15,20 @@ const Hot = () => {
                     <Tabs.TabPane key={item} title={item}/>
                 ))}
             </Tabs>
-            <Outlet/>
+
+            <div className="parent">
+                <div className="item-1">
+                    <div className="child">1</div>
+                </div>
+                <div className="item-2">
+                    <div className="child">2</div>
+                </div>
+                <div className="item-3">
+                    <div className="child">3</div>
+                </div>
+            </div>
+
+
         </div>
     )
 }

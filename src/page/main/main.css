@@ -1,9 +1,0 @@
-.my_tab {
-    --rv-tabbar-item-icon-margin-bottom: 40px,
-}
-
-.content_layout {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}

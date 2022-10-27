@@ -14,13 +14,11 @@ const App = () => {
     const routeElement = useRoutes(routes)
     return (
         <div>
-            <div>
-                {/*<Routes>*/}
-                {/*<Route path="/main" element={<Main/>}/>*/}
-                {/*</Routes>*/}
-                {/*动态路由表注册*/}
-                {routeElement}
-            </div>
+            {/*<Routes>*/}
+            {/*<Route path="/main" element={<Main/>}/>*/}
+            {/*</Routes>*/}
+            {/*动态路由表注册*/}
+            {routeElement}
         </div>
     )
 }

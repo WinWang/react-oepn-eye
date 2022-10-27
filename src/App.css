@@ -9,12 +9,13 @@
     --rv-tabs-default-color: white;
     --rv-tab-active-text-color:white;
     --rv-tabs-bottom-bar-color:white;
-    --rv-tab-text-color:#888888;
+    --rv-tab-text-color:#333333;
 }
 
-.vertical-layout {
+.app-vertical-layout {
     display: flex;
     flex-direction: column;
+    height: 100vh;
 }
 
 .vertical-content-layout {

@@ -16,12 +16,10 @@ const Home = () => {
 
     useLayoutEffect(() => {
         console.log("<><><><>初始化useLayoutEffect")
-        getHomeData(true, "")
     }, [])
 
 
     const getHomeData = async (isRefresh, dateParams) => {
-        console.log("日期》》》" + date + ">>>>>>" + dateParams)
         await api.getHomeList(dateParams)
             .then(res => {
                 let list = res.issueList[0].itemList;
@@ -38,36 +36,34 @@ const Home = () => {
                     item.sid = nanoid()
                 });
                 if (isRefresh) {
-                    let tempList = list.filter(item => {
-                        if (item.type === "banner2") {
-                            bannerList.push(item);
-                            return false
-                        } else return item.type !== "textHeader";
-                    });
-                    setBannerList(bannerList)
-                    console.log("长度<><><><><><><><><><>" + bannerList.length)
-                    setDataList(tempList);
-                    console.log(">>>>>>>>刷新" + dataList.length)
+                    setBannerList(() => [])
+                }
+                //过滤符合条件的数据
+                let filterDataList = list.filter(item => {
+                    item.sid = nanoid();
+                    if (item.type === "banner2") {
+                        setBannerList((v) => [...v, item]);
+                        return false
+                    } else return item.type !== "textHeader";
+                });
+                if (isRefresh) {
+                    setDataList(filterDataList);
                 } else {
-                    let tempList = dataList.concat(list)
-                    setDataList(tempList)
-                    setBannerList(bannerList)
-                    console.log(">>>>>>>>加载")
+                    setDataList((v) => [...v, ...filterDataList]);
                 }
             })
     }
 
 
     const onRefresh = async () => {
-        await setDate("");
-        getHomeData(true, "")
+        console.log("<><><><>刷新")
+        setDate("");
+        await getHomeData(true, "")
     };
 
-    const onLoadMore = () => {
-        if (dataList.length > 0) {
-            console.log("<><><><>加载")
-            getHomeData(false, date)
-        }
+    const onLoadMore = async () => {
+        console.log("<><><><>加载")
+        await getHomeData(false, date)
     };
 
     const swiper = () => {
@@ -81,7 +77,7 @@ const Home = () => {
     };
 
     return (
-        <div className="vertical-layout">
+        <div className="home-vertical-layout">
             <NavBar title='首页' fixed={true} safeAreaInsetTop={true} leftArrow={null}/>
             <div className="top-empty-layout"/>
             <PullRefresh onRefresh={onRefresh}>

@@ -68,3 +68,14 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+###查看浏览器触发滚动元素
+function findscroller(element){
+        element.onscroll=function () {
+            console.log(element)
+        }
+        Array.from(element.children).forEach(findscroller)
+  }
+ findscroller(document.body)

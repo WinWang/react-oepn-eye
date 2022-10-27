@@ -1,5 +1,5 @@
 import './find.less'
-import {useLayoutEffect, useEffect} from 'react'
+import React, {useLayoutEffect} from 'react'
 import {Outlet, useNavigate} from 'react-router-dom'
 import {NavBar, Tabs} from 'react-vant'
 
@@ -32,15 +32,20 @@ const Find = () => {
 
 
     return (
-        <div className="vertical-layout">
-            <NavBar title='发现' fixed={true} safeAreaInsetTop={true} leftArrow={null}/>
-            <div className="top-empty-layout"/>
-            <Tabs defaultActive={0} onChange={(name, tabIndex) => tabClick(tabIndex)}>
+        <div className="find-vertical-layout">
+            <NavBar title='发现' safeAreaInsetTop={true} leftArrow={null} style={{potistion: "absolute", top: "0"}}/>
+            <Tabs defaultActive={0} onChange={(name, tabIndex) => tabClick(tabIndex)}
+                  style={{position: "absolute", left: "0px", top: "46px"}}>
                 {tabs.map(item => (
                     <Tabs.TabPane key={item} title={item}/>
                 ))}
             </Tabs>
-            <Outlet/>
+            <div className="outlet-wrap">
+                <div>
+                    <Outlet/>
+                </div>
+            </div>
+
         </div>
     )
 }

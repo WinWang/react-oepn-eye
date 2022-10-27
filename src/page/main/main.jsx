@@ -2,7 +2,7 @@
  * 项目主页面
  */
 import React from "react"
-import "./main.css"
+import "./main.less"
 import {Divider, Tabbar} from 'react-vant'
 import {FriendsO, HomeO, Search, SettingO} from '@react-vant/icons'
 import {Outlet, useNavigate} from 'react-router-dom'
@@ -28,17 +28,20 @@ const Main = () => {
                 break;
 
             case 3:
-                navigate("/main/test");
+                navigate("/main/mine");
                 break
         }
     }
 
 
     return (
-        <div className="vertical-layout">
-            <Outlet/>
-            <Divider/>
-            <div className="my_tab">
+        <div className="main-vertical-layout">
+            <div className="main_content_layout">
+                <div>
+                    <Outlet/>
+                </div>
+            </div>
+            <div>
                 <Tabbar onChange={v => {
                     changeTabRoute(v)
                 }}>
