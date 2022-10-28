@@ -1,10 +1,12 @@
 import './home.less'
 import React, {useEffect, useState, useLayoutEffect} from "react"
 import {Image, List, NavBar, PullRefresh, Swiper} from 'react-vant'
+import {useNavigate} from "react-router-dom";
 import api from '../../network/apiservice'
 import {nanoid} from 'nanoid';
 
 const Home = () => {
+    const navigate = useNavigate()
     const [dataList, setDataList] = useState([]);
     const [bannerList, setBannerList] = useState([]);
     const [finished, setFinished] = useState(false);
@@ -75,6 +77,13 @@ const Home = () => {
         </Swiper>
     };
 
+    const clickItem = (videoUrl) => {
+        console.log("<><><><><>" + videoUrl)
+        navigate("/videoDetail", {
+            state: videoUrl
+        })
+    }
+
     return (
         <div className="home-vertical-layout">
             <NavBar title='首页' fixed={true} safeAreaInsetTop={true} leftArrow={null}/>
@@ -82,8 +91,10 @@ const Home = () => {
             <PullRefresh onRefresh={onRefresh}>
                 {bannerList.length > 0 ? swiper() : null}
                 <List finished={finished} onLoad={onLoadMore} offset={0}>
-                    {dataList.map((item,_) => (
-                        <div key={item.sid} className="item-wrap-layout">
+                    {dataList.map((item, _) => (
+                        <div key={item.sid} className="item-wrap-layout" onClick={() => {
+                            clickItem(item.data.playUrl)
+                        }}>
                             <div className="image-wrap">
                                 <Image key={item.sid} src={item.data.cover.feed} fit={"cover"}/>
                                 <div className="left-tag"><span className="tag-text">{item.data.category}</span></div>

@@ -1,6 +1,6 @@
 import './topic.less'
 import React, {useLayoutEffect, useState} from 'react'
-import {PullRefresh, List, Image} from 'react-vant'
+import {Image, List, PullRefresh} from 'react-vant'
 import api from '../../../network/apiservice'
 
 
@@ -13,8 +13,8 @@ const Topic = () => {
 
     }, [])
 
-    const getTopicData = async (isRefresh) => {
-        await api.getTopicData(start).then(res => {
+    const getTopicData = async (isRefresh, startNum) => {
+        await api.getTopicData(startNum).then(res => {
             if (isRefresh) {
                 setDataList(res.itemList)
             } else {
@@ -25,14 +25,13 @@ const Topic = () => {
 
     // 下拉刷新
     const refresh = async () => {
-        await setStart(() => 0)
-        await getTopicData(true)
-
+        setStart(() => 0)
+        await getTopicData(true, 0)
     }
     // 加载更多
     const onLoadMore = async () => {
         setStart((v) => v + 1)
-        await getTopicData(false)
+        await getTopicData(false, start + 1)
     }
 
     return (

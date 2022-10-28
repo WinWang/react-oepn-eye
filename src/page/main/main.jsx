@@ -3,15 +3,12 @@
  */
 import React from "react"
 import "./main.less"
-import {Divider, Tabbar} from 'react-vant'
+import {Tabbar} from 'react-vant'
 import {FriendsO, HomeO, Search, SettingO} from '@react-vant/icons'
 import {Outlet, useNavigate} from 'react-router-dom'
 
-
 const Main = () => {
     const navigate = useNavigate();
-    // 定义state变量
-    // const [selectIndex, setSelectIndex] = React.useState(0)
 
     function changeTabRoute(index) {
         switch (index) {
@@ -37,11 +34,10 @@ const Main = () => {
     return (
         <div className="main-vertical-layout">
             <div className="main_content_layout">
-                <div>
-                    <Outlet/>
-                </div>
+                <Outlet/>
             </div>
-            <div>
+            <div style={{height: "50px"}}></div>
+            <div className="main_bottom">
                 <Tabbar onChange={v => {
                     changeTabRoute(v)
                 }}>
@@ -53,6 +49,5 @@ const Main = () => {
             </div>
         </div>
     )
-
 };
 export default Main

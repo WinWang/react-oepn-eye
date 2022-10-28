@@ -1,11 +1,11 @@
 /*全局配置React-Vant主题属性*/
 :root:root {
-    --rv-button-primary-background-color: #ff3b14;
-    --rv-tabbar-item-active-color: #ff3b14;
-    --rv-nav-bar-background-color: #ff3b14;
+    --rv-button-primary-background-color: #EA4C43;
+    --rv-tabbar-item-active-color: #EA4C43;
+    --rv-nav-bar-background-color: #EA4C43;
     --rv-nav-bar-text-color: white;
     --rv-nav-bar-title-text-color: white;
-    --rv-tabs-nav-background-color: #ff3b14;
+    --rv-tabs-nav-background-color: #EA4C43;
     --rv-tabs-default-color: white;
     --rv-tab-active-text-color:white;
     --rv-tabs-bottom-bar-color:white;

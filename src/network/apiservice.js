@@ -12,7 +12,6 @@ async function getHomeList(date) {
 
 /**
  * 获取关注数据
- * @param startId
  */
 async function getFocusData(start) {
     return get(baseUrl + "/api/v4/tabs/follow", {"start": start})
@@ -32,10 +31,20 @@ function getTopicData(start) {
     return get(baseUrl + "/api/v3/specialTopics", {"start": start})
 }
 
+/**
+ * 获取排行榜数据
+ * @param rankType  weekly 周排行       monthly 月排行        historical  总排行
+ * @returns {Promise | Promise<unknown>}
+ */
+function getRankListData(rankType) {
+    return get(baseUrl + "/api/v4/rankList/videos", {"strategy": rankType})
+}
+
 
 export default {
     getHomeList,
     getCategoryData,
     getFocusData,
     getTopicData,
+    getRankListData
 }
