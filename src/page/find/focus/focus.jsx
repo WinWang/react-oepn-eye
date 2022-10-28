@@ -11,8 +11,8 @@ const Focus = () => {
         console.log("初始化加载?????")
     }, []);
 
-    const getFocusData = async (refresh) => {
-        await api.getFocusData(start).then(res => {
+    const getFocusData = async (refresh, startNum) => {
+        await api.getFocusData(startNum).then(res => {
             if (refresh) {
                 setDataList(() => [...res.itemList])
             } else {
@@ -24,12 +24,12 @@ const Focus = () => {
 
     const onLoadMore = async () => {
         setStart((v) => v + 1);
-        await getFocusData(false);
+        await getFocusData(false, start + 1);
     };
 
     const refresh = async () => {
         setStart(0);
-        await getFocusData(true);
+        await getFocusData(true, 0);
     };
 
     return (
