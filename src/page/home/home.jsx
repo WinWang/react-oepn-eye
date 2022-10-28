@@ -1,8 +1,8 @@
 import './home.less'
-import React, {useEffect, useState, useLayoutEffect, useRef} from "react"
-import {Image, List, NavBar, PullRefresh, Swiper} from 'react-vant'
+import React, { useEffect, useState, useLayoutEffect, useRef } from "react"
+import { Image, List, NavBar, PullRefresh, Swiper } from 'react-vant'
 import api from '../../network/apiservice'
-import {nanoid} from 'nanoid';
+import { nanoid } from 'nanoid';
 
 const Home = () => {
     const [dataList, setDataList] = useState([]);
@@ -46,6 +46,7 @@ const Home = () => {
                         return false
                     } else return item.type !== "textHeader";
                 });
+                console.log("过滤数组长度>>>>>>" + filterDataList.length)
                 if (isRefresh) {
                     setDataList(filterDataList);
                 } else {
@@ -70,7 +71,7 @@ const Home = () => {
         return <Swiper>
             {bannerList.map((item, index) => {
                 return <Swiper.Item key={index}>
-                    <Image src={item.data.image}/>
+                    <Image src={item.data.image} />
                 </Swiper.Item>
             })}
         </Swiper>
@@ -78,8 +79,8 @@ const Home = () => {
 
     return (
         <div className="home-vertical-layout">
-            <NavBar title='首页' fixed={true} safeAreaInsetTop={true} leftArrow={null}/>
-            <div className="top-empty-layout"/>
+            <NavBar title='首页' fixed={true} safeAreaInsetTop={true} leftArrow={null} />
+            <div className="top-empty-layout" />
             <PullRefresh onRefresh={onRefresh}>
                 {bannerList.length > 0 ? swiper() : null}
                 <List finished={finished} onLoad={onLoadMore} offset={0}>
@@ -87,12 +88,12 @@ const Home = () => {
                         <div key={item.sid}>
                             <div className="item-wrap-layout">
                                 <div className="image-wrap">
-                                    <Image key={item.sid} src={item.data.cover.feed} fit={"cover"}/>
+                                    <Image key={item.sid} src={item.data.cover.feed} fit={"cover"} />
                                     <div className="left-tag"><span className="tag-text">{item.data.category}</span>
                                     </div>
                                 </div>
                                 <div className="horizontal-layout">
-                                    <Image round height="50px" width="50px" src={item.data.author.icon}/>
+                                    <Image round height="50px" width="50px" src={item.data.author.icon} />
                                     <div className="title-desc-wrap">
                                         <span className="item-bottom-title">{item.data.author.name}</span>
                                         <span className="item-bottom-desc">{item.data.author.description}</span>
