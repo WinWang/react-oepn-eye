@@ -27,15 +27,18 @@ const Find = () => {
                 console.log("/main/find/topic" + name);
                 navigate("/main/find/topic");
                 break;
+            default:
+                console.log("/main/find/focus" + name);
+                navigate("/main/find/focus");
+                break;
         }
     }
-
 
     return (
         <div className="find-vertical-layout">
             <NavBar title='发现' safeAreaInsetTop={true} leftArrow={null} style={{potistion: "absolute", top: "0"}}/>
             <Tabs defaultActive={0} onChange={(name, tabIndex) => tabClick(tabIndex)}
-                  style={{position: "absolute", left: "0px", top: "46px"}}>
+                  style={{position: "absolute", left: "0px", top: "45px"}}>
                 {tabs.map(item => (
                     <Tabs.TabPane key={item} title={item}/>
                 ))}

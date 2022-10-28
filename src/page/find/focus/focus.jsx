@@ -1,7 +1,7 @@
 import './focus.less'
 import api from '../../../network/apiservice'
 import React, {useLayoutEffect, useState} from 'react'
-import {PullRefresh, List, Image, Divider} from 'react-vant'
+import {Divider, Image, List, PullRefresh} from 'react-vant'
 
 const Focus = () => {
     const [dataList, setDataList] = useState([]);
@@ -14,7 +14,7 @@ const Focus = () => {
     const getFocusData = async (refresh) => {
         await api.getFocusData(start).then(res => {
             if (refresh) {
-                setDataList((v) => [...res.itemList])
+                setDataList(() => [...res.itemList])
             } else {
                 setDataList((v) => [...v, ...res.itemList])
             }
@@ -37,7 +37,7 @@ const Focus = () => {
             <PullRefresh onRefresh={refresh}>
                 <List onLoad={onLoadMore}>
                     {dataList.map((item, index) => (
-                        <div className="focus-item-vertical-layout">
+                        <div key={index} className="focus-item-vertical-layout">
                             <div className="focus-horizontal-layout">
                                 <Image round height="50px" width="50px" src={item.data.header.icon}/>
                                 <div className="title-desc-wrap">
@@ -46,8 +46,8 @@ const Focus = () => {
                                 </div>
                             </div>
                             <div className="focus-horizontal-layout">
-                                {item.data.itemList.map((itemx, index) => (
-                                    <div className="bottom-wrap-layout">
+                                {item.data.itemList.map((itemx, indexInner) => (
+                                    <div key={indexInner} className="bottom-wrap-layout">
                                         <div className="img-wrap">
                                             <Image src={itemx.data.cover.feed}/>
                                             <div className="left-tag"><span

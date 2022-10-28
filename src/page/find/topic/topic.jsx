@@ -1,6 +1,6 @@
 import './topic.less'
-import React, { useLayoutEffect, useState } from 'react'
-import { PullRefresh, List, Image } from 'react-vant'
+import React, {useLayoutEffect, useState} from 'react'
+import {PullRefresh, List, Image} from 'react-vant'
 import api from '../../../network/apiservice'
 
 
@@ -13,7 +13,6 @@ const Topic = () => {
 
     }, [])
 
-
     const getTopicData = async (isRefresh) => {
         await api.getTopicData(start).then(res => {
             if (isRefresh) {
@@ -23,7 +22,6 @@ const Topic = () => {
             }
         })
     }
-
 
     // 下拉刷新
     const refresh = async () => {
@@ -42,8 +40,8 @@ const Topic = () => {
             <PullRefresh onRefresh={refresh}>
                 <List onLoad={onLoadMore}>
                     {dataList.map((item, index) => (
-                        <div className='image-wrap-out'>
-                            <div className='image-wrap'> <Image src={item.data.image} fit={"cover"} /></div>
+                        <div key={index} className='image-wrap-out'>
+                            <div className='image-wrap'><Image src={item.data.image} fit={"cover"}/></div>
                         </div>
                     ))}
                 </List>

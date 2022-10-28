@@ -32,7 +32,7 @@ const Category = () => {
                 <Grid square columnNum={2}>
                     {
                         dataList.map((item, index) => (
-                            <GridItem>
+                            <GridItem key={index}>
                                 <div className="img-wrap">
                                     <Image src={item.headerImage} fit={"cover"}/>
                                     <span className="ad-title">{item.name}</span>
