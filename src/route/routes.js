@@ -25,11 +25,12 @@ const routeList = [
         children: [
             {
                 index: true,
-                element: <Navigate to="/main/home" replace/>
+                element: <Navigate to="/main/home" replace={true}/>
             },
             {
                 path: 'home',
-                element: <Home/>
+                element: <Home/>,
+                replace: true
             },
             {
                 path: 'find',
@@ -54,7 +55,8 @@ const routeList = [
                         element: <Topic/>,
                         replace: true
                     }
-                ]
+                ],
+                replace: true
             },
             {
                 path: 'hot',
@@ -73,11 +75,13 @@ const routeList = [
             },
             {
                 path: 'mine',
-                element: <Mine/>
+                element: <Mine/>,
+                replace: true
             },
             {
                 path: 'test',
-                element: <Test/>
+                element: <Test/>,
+                replace: true
             }
         ]
     },

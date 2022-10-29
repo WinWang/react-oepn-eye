@@ -40,11 +40,21 @@ function getRankListData(rankType) {
     return get(baseUrl + "/api/v4/rankList/videos", {"strategy": rankType})
 }
 
+/**
+ * 获取视频关联
+ * @param videoId
+ * @returns {Promise | Promise<unknown>}
+ */
+function getVideoList(videoId) {
+    return get(baseUrl + "/api/v4/video/related", {"id": videoId})
+}
+
 
 export default {
     getHomeList,
     getCategoryData,
     getFocusData,
     getTopicData,
-    getRankListData
+    getRankListData,
+    getVideoList
 }

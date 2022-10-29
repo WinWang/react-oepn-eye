@@ -2,10 +2,13 @@ import './focus.less'
 import api from '../../../network/apiservice'
 import React, {useLayoutEffect, useState} from 'react'
 import {Divider, Image, List, PullRefresh} from 'react-vant'
+import {useNavigate} from "react-router-dom";
 
 const Focus = () => {
+
     const [dataList, setDataList] = useState([]);
     const [start, setStart] = useState(0);
+    const navigate = useNavigate()
 
     useLayoutEffect(() => {
         console.log("初始化加载?????")
@@ -21,7 +24,6 @@ const Focus = () => {
         })
     };
 
-
     const onLoadMore = async () => {
         setStart((v) => v + 1);
         await getFocusData(false, start + 1);
@@ -31,6 +33,17 @@ const Focus = () => {
         setStart(0);
         await getFocusData(true, 0);
     };
+
+    const onItemClick = (item) => {
+        navigate("/videoDetail", {
+                state: {
+                    "videoUrl": item.data.playUrl,
+                    "videoId": item.data.id
+                }
+            }
+        )
+    }
+
 
     return (
         <div className="focus-vertical-layout">
@@ -47,7 +60,9 @@ const Focus = () => {
                             </div>
                             <div className="focus-horizontal-layout">
                                 {item.data.itemList.map((itemx, indexInner) => (
-                                    <div key={indexInner} className="bottom-wrap-layout">
+                                    <div key={indexInner} className="bottom-wrap-layout" onClick={() => {
+                                        onItemClick(itemx)
+                                    }}>
                                         <div className="img-wrap">
                                             <Image src={itemx.data.cover.feed}/>
                                             <div className="left-tag"><span

@@ -77,10 +77,12 @@ const Home = () => {
         </Swiper>
     };
 
-    const clickItem = (videoUrl) => {
-        console.log("<><><><><>" + videoUrl)
+    const clickItem = (item) => {
         navigate("/videoDetail", {
-            state: videoUrl
+            state: {
+                "videoUrl": item.data.playUrl,
+                "videoId": item.data.id
+            }
         })
     }
 
@@ -93,7 +95,7 @@ const Home = () => {
                 <List finished={finished} onLoad={onLoadMore} offset={0}>
                     {dataList.map((item, _) => (
                         <div key={item.sid} className="item-wrap-layout" onClick={() => {
-                            clickItem(item.data.playUrl)
+                            clickItem(item)
                         }}>
                             <div className="image-wrap">
                                 <Image key={item.sid} src={item.data.cover.feed} fit={"cover"}/>

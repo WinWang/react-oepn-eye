@@ -1,16 +1,23 @@
 /***
  * 项目主页面
  */
-import React from "react"
+import React, {useEffect, useState} from "react"
 import "./main.less"
 import {Tabbar} from 'react-vant'
 import {FriendsO, HomeO, Search, SettingO} from '@react-vant/icons'
-import {Outlet, useNavigate} from 'react-router-dom'
+import {Outlet, useNavigate, useLocation} from 'react-router-dom'
 
 const Main = () => {
     const navigate = useNavigate();
+    const location = useLocation()
+    const [tabIndex, setTabIndex] = useState(0)//选中tab监听
 
-    function changeTabRoute(index) {
+    useEffect(() => {
+        console.log("首页路由相关><><><><>" + location.pathname)
+        selectTabIndex(location.pathname)
+    }, [location])
+
+    const changeTabRoute = (index) => {
         switch (index) {
             case 0:
                 navigate("/main/home");
@@ -30,6 +37,17 @@ const Main = () => {
         }
     }
 
+    const selectTabIndex = (routeName) => {
+        if (routeName.indexOf("/main/home") > -1) {
+            setTabIndex(0)
+        } else if (routeName.indexOf("/main/find") > -1) {
+            setTabIndex(1)
+        } else if (routeName.indexOf('/main/hot') > -1) {
+            setTabIndex(2)
+        } else if (routeName.indexOf('/main/mine') > -1) {
+            setTabIndex(3)
+        }
+    }
 
     return (
         <div className="main-vertical-layout">
@@ -38,7 +56,7 @@ const Main = () => {
             </div>
             <div style={{height: "50px"}}></div>
             <div className="main_bottom">
-                <Tabbar onChange={v => {
+                <Tabbar value={tabIndex} onChange={v => {
                     changeTabRoute(v)
                 }}>
                     <Tabbar.Item icon={<HomeO/>}>首页</Tabbar.Item>

@@ -10,6 +10,8 @@
     --rv-tab-active-text-color:white;
     --rv-tabs-bottom-bar-color:white;
     --rv-tab-text-color:#333333;
+    --rv-nav-bar-title-font-size:18px;
+    --rv-nav-bar-icon-color:white;
 }
 
 .app-vertical-layout {

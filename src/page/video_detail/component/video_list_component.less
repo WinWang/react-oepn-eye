@@ -1,0 +1,41 @@
+.video-list-wrap {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  padding: 10px 10px 0 10px;
+  height: 70px;
+
+  .image-wrap-list {
+    width: 100px;
+  }
+
+  .right-wrap {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    .title {
+      color: #333333;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: inline-block;
+      white-space: nowrap;
+      max-width: 250px;
+      font-size: 14px;
+      max-lines: 2;
+    }
+
+    .desc {
+      color: #999999;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: inline-block;
+      white-space: nowrap;
+      max-width: 250px;
+      font-size: 13px;
+      -webkit-line-clamp: 2;
+    }
+
+  }
+
+}
