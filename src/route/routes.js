@@ -1,16 +1,20 @@
 import {Navigate} from 'react-router-dom'
 
-import Main from '../page/main/main'  //主项目入口页面容器，承载四个tab切换的页面入口
+import Main from '../page/main/main' //主项目入口页面容器，承载四个tab切换的页面入口
 import Home from '../page/home/home' //首页页面
 import Find from '../page/find/find' //发现页面
-import Hot from '../page/hot/hot'   //热门tab页面
-import Mine from '../page/mine/mine'  //我的页面
-import Test from '../page/test/test'  //测试组件class页面
-import Category from '../page/find/category/category'  //分类页面
-import Focus from '../page/find/focus/focus'  //关注页面
-import Topic from '../page/find/topic/topic'  //专题页面
+import Hot from '../page/hot/hot' //热门tab页面
+import Mine from '../page/mine/mine' //我的页面
+import Test from '../page/test/test' //测试组件class页面
+import Category from '../page/find/category/category' //分类页面
+import Focus from '../page/find/focus/focus' //关注页面
+import Topic from '../page/find/topic/topic' //专题页面
 import Rank from '../page/hot/rank/rank' //排行榜页面
 import VideoDetail from "../page/video_detail/video_detail"; //视频播放详情页面
+import MobxTest from '../page/test/mobx/mobx_test'; //mobx测试页面
+import CategoryDetail from "../page/category_detail/category_detail"; //分类详情页面
+import TopicDetail from "../page/topic_detail/topic_detail";//专题详情页面
+
 
 import React from "react";
 
@@ -64,7 +68,12 @@ const routeList = [
                 children: [
                     {
                         index: true,
-                        element: <Navigate to="/main/hot/rank" replace={true} state="weekly"/>
+                        element: <Navigate to="/main/hot/rank" replace={true} state={
+                            {
+                                rankType: "weekly",
+                                showTitleBar: false
+                            }
+                        }/>
                     },
                     {
                         path: 'rank',
@@ -82,13 +91,59 @@ const routeList = [
                 path: 'test',
                 element: <Test/>,
                 replace: true
+            },
+            {
+                path: 'mobx',
+                element: <MobxTest/>,
+                replace: true
             }
         ]
     },
     {
         path: '/videoDetail',
         element: <VideoDetail/>
+    },
+    {
+        path: "/categoryDetail",
+        element: <CategoryDetail/>
+    },
+    {
+        path: "/topicDetail",
+        element: <TopicDetail/>
+    },
+    {
+        path: '/focus',
+        element: <Focus/>,
+    },
+    {
+        path: '/category',
+        element: <Category/>,
+    },
+    {
+        path: '/topic',
+        element: <Topic/>,
+    },
+    {
+        path: 'hot',
+        element: <Hot/>,
+        children: [
+            {
+                index: true,
+                element: <Navigate to="/hot/rank" replace={true} state={
+                    {
+                        rankType: "weekly",
+                        showTitleBar: true
+                    }
+                }/>
+            },
+            {
+                path: 'rank',
+                element: <Rank/>,
+                replace: true
+            }
+        ]
     }
+
 ]
 
 export default routeList

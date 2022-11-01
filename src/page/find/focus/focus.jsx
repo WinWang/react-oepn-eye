@@ -1,18 +1,20 @@
 import './focus.less'
 import api from '../../../network/apiservice'
-import React, {useLayoutEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {Divider, Image, List, PullRefresh} from 'react-vant'
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useLocation} from "react-router-dom";
+import TopBar from "../../../component/topbar";
 
 const Focus = () => {
-
     const [dataList, setDataList] = useState([]);
     const [start, setStart] = useState(0);
+    const [showTitleBar, setShowTitleBar] = useState(false)
     const navigate = useNavigate()
+    const location = useLocation()
 
-    useLayoutEffect(() => {
-        console.log("初始化加载?????")
-    }, []);
+    useEffect(() => {
+        setShowTitleBar(location.state)
+    }, [location.state]);
 
     const getFocusData = async (refresh, startNum) => {
         await api.getFocusData(startNum).then(res => {
@@ -47,6 +49,10 @@ const Focus = () => {
 
     return (
         <div className="focus-vertical-layout">
+            {showTitleBar ? <div className="focus-top-inner-wrap">
+                <TopBar title={"关注"} fixed={true}/>
+                <div className="top-empty-layout"/>
+            </div> : null}
             <PullRefresh onRefresh={refresh}>
                 <List onLoad={onLoadMore}>
                     {dataList.map((item, index) => (

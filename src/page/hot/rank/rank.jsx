@@ -15,9 +15,9 @@ const Rank = () => {
     const navigate = useNavigate()
 
     useLayoutEffect(() => {
-        console.log("路由传递参数>>>" + location.state)
-        setParams(location.state)
-        getRankData(location.state)
+        console.log("路由传递参数>>>" + location.state.rankType)
+        setParams(location.state.rankType)
+        getRankData(location.state.rankType)
     }, [location.state])
 
     const getRankData = async (rankType) => {
@@ -27,7 +27,7 @@ const Rank = () => {
     }
 
     const refresh = async () => {
-        await getRankData(location.state)
+        await getRankData(location.state.rankType)
     }
 
     const clickItem = (item) => {

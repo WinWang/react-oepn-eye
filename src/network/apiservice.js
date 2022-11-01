@@ -1,4 +1,5 @@
 import {get} from '../network/http'
+import * as Constant from '../constant/constant'
 
 let baseUrl = process.env.REACT_APP_BASE_URL;
 
@@ -6,14 +7,14 @@ let baseUrl = process.env.REACT_APP_BASE_URL;
 /**
  * 获取首页接口
  */
-async function getHomeList(date) {
+function getHomeList(date) {
     return get(baseUrl + "/api/v2/feed", {"date": date, "num": 1});
 }
 
 /**
  * 获取关注数据
  */
-async function getFocusData(start) {
+function getFocusData(start) {
     return get(baseUrl + "/api/v4/tabs/follow", {"start": start})
 }
 
@@ -50,11 +51,39 @@ function getVideoList(videoId) {
 }
 
 
+/**
+ * 查询专题详情
+ * @param id
+ * @returns {Promise | Promise<unknown>}
+ */
+function getTopicDetailData(id) {
+    return get(baseUrl + "api/v3/lightTopics/internal/" + id, {})
+}
+
+/**
+ * 获取分享详情接口
+ * @param id
+ * @param start
+ * @returns {Promise | Promise<unknown>}
+ */
+function getCategoryDetail(id, start) {
+    return get(baseUrl + "api/v4/categories/videoList", {
+        "id": id,
+        "start": start,
+        "udid": Constant.UUID,
+        deviceModel: Constant.DEVICE_NUM
+    })
+}
+
+
 export default {
     getHomeList,
     getCategoryData,
     getFocusData,
     getTopicData,
     getRankListData,
-    getVideoList
+    getVideoList,
+    getTopicDetailData,
+    getCategoryDetail
+
 }

@@ -54,7 +54,6 @@ const Main = () => {
             <div className="main_content_layout">
                 <Outlet/>
             </div>
-            <div style={{height: "50px"}}></div>
             <div className="main_bottom">
                 <Tabbar value={tabIndex} onChange={v => {
                     changeTabRoute(v)

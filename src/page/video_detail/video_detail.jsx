@@ -15,7 +15,7 @@ const VideoDetail = () => {
     useLayoutEffect(() => {
         setVideoUrl(location.state.videoUrl)
         setVideoId(location.state.videoId)
-    }, [])
+    })
 
     useEffect(() => {
 
@@ -39,6 +39,7 @@ const VideoDetail = () => {
                          width='100%'
                          height='auto'
                          playing={true}
+                         controls={true}
             />
             <div className="video-child-wrap">
                 <VideoListComponent videoId={videoId} callback={callback}/>

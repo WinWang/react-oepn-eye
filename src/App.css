@@ -7,17 +7,25 @@
     --rv-nav-bar-title-text-color: white;
     --rv-tabs-nav-background-color: #EA4C43;
     --rv-tabs-default-color: white;
-    --rv-tab-active-text-color:white;
-    --rv-tabs-bottom-bar-color:white;
-    --rv-tab-text-color:#333333;
-    --rv-nav-bar-title-font-size:18px;
-    --rv-nav-bar-icon-color:white;
+    --rv-tab-active-text-color: white;
+    --rv-tabs-bottom-bar-color: white;
+    --rv-tab-text-color: #CCCCCC;
+    --rv-nav-bar-title-font-size: 18px;
+    --rv-nav-bar-icon-color: white;
+    --rv-divider-line-height: 1px;
+    --rv-nav-bar-arrow-size: 23px;
 }
 
 .app-vertical-layout {
     display: flex;
     flex-direction: column;
     height: 100vh;
+}
+
+.app-divider-style {
+    height: 1px;
+    width: 100%;
+    background: #efefef;
 }
 
 .vertical-content-layout {

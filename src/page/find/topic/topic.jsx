@@ -1,17 +1,21 @@
 import './topic.less'
-import React, {useLayoutEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {Image, List, PullRefresh} from 'react-vant'
+import {useNavigate, useLocation} from "react-router-dom";
 import api from '../../../network/apiservice'
+import TopBar from "../../../component/topbar";
 
 
 const Topic = () => {
-
+    const navigate = useNavigate()
+    const location = useLocation()
     const [dataList, setDataList] = useState([])
     const [start, setStart] = useState(0)
+    const [showTitleBar, setShowTitleBar] = useState(false)
 
-    useLayoutEffect(() => {
-
-    }, [])
+    useEffect(() => {
+        setShowTitleBar(location.state)
+    }, [location.state]);
 
     const getTopicData = async (isRefresh, startNum) => {
         await api.getTopicData(startNum).then(res => {
@@ -36,10 +40,17 @@ const Topic = () => {
 
     return (
         <div className="topic-vertical-layout">
+            {showTitleBar ?
+                <TopBar title={"关注"} fixed={true} placeholder={true}/>
+                : null}
             <PullRefresh onRefresh={refresh}>
                 <List onLoad={onLoadMore}>
                     {dataList.map((item, index) => (
-                        <div key={index} className='image-wrap-out'>
+                        <div key={index} className='image-wrap-out' onClick={() => {
+                            navigate("/topicDetail", {
+                                state: item.data.id
+                            })
+                        }}>
                             <div className='image-wrap'><Image src={item.data.image} fit={"cover"}/></div>
                         </div>
                     ))}
