@@ -1,81 +1,22 @@
-# Getting Started with Create React App
+该项目是React版本开发的开眼App-web版本，主要目的是用来学习上手React项目实践，接口和UI基本参照以前开发的Flutter
+OpenEye项目主体基于React18+React-Vant+Mobx+axios开发完成,非常适合新手了解和学习用React开发一款移动端App；该项目涉及
+React移动端屏幕适配，axios网络拦截器的使用，React父子组件传参回调，Mobx6在React函数编程中的运用，React路由监听等等
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Flutter版本链接：https://github.com/WinWang/open_eye
 
-## Available Scripts
+如果想上手Vue的同学也可以参照看看以前基于Vue2+vue-Vant+axios的WanAndroid项目<br/>
 
-In the project directory, you can run:
+Vue版本WanAndroid项目链接：https://github.com/WinWang/Vue-WanAndroid
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 
 
 ###查看浏览器触发滚动元素
 function findscroller(element){
-        element.onscroll=function () {
-            console.log(element)
-        }
-        Array.from(element.children).forEach(findscroller)
-  }
- findscroller(document.body)
+element.onscroll=function () {
+console.log(element)
+}
+Array.from(element.children).forEach(findscroller)
+}
+findscroller(document.body)
