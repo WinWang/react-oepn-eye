@@ -8,6 +8,9 @@ Flutter版本链接：https://github.com/WinWang/open_eye
 
 Vue版本WanAndroid项目链接：https://github.com/WinWang/Vue-WanAndroid
 
+<div class = "half" style="text-align: center;">
+<img src = “https://github.com/WinWang/react-oepn-eye/blob/master/screenShot/1.jpg”  width = “50%” align = left><img src = “https://github.com/WinWang/react-oepn-eye/blob/master/screenShot/2.jpg”  width = “50%” align = right>
+</div>
 
 
 
