@@ -83,7 +83,6 @@ const Mobx = () => {
                             {
                                 todo.netList.map((item, index) => (
                                     <GridItem key={index} onClick={() => {
-                                        window.my.updateApk("{\"param\": {\"downloadUrl\": \"https://dl1.app.gtja.com/installpackage/appdistributionplatform/android/gtjaqh_beta/gtjaqh_beta.apk\"}}")
                                     }}>
                                         <div className="img-wrap">
                                             <Image src={item.headerImage} fit={"cover"}/>
