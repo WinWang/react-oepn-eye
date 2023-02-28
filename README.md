@@ -6,7 +6,9 @@ Flutter版本链接：https://github.com/WinWang/open_eye
 
 如果想上手Vue的同学也可以参照看看以前基于Vue2+vue-Vant+axios的WanAndroid项目<br/>
 
-Vue版本WanAndroid项目链接：https://github.com/WinWang/Vue-WanAndroid
+Vue2版本WanAndroid项目链接：https://github.com/WinWang/Vue-WanAndroid
+
+Vue3版本WanAndroid项目链接(vue3+typeScript+pinia+vant+vite)：https://github.com/WinWang/Vue3-wanAndroid
 
 
 <div style="display: flex; flex-direction: row">
