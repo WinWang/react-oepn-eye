@@ -8,9 +8,9 @@ React移动端屏幕适配，axios网络拦截器的使用，React父子组件�
 
 **Flutter版本**OpenEye链接(getx+retrofit+dio+jsonserialize+自定义控件demo)：https://github.com/WinWang/open_eye
 
-**Vue2版本**WanAndroid项目链接(Vue2+vuex+vant+axios)：https://github.com/WinWang/Vue-WanAndroid
+**Vue2版本**WanAndroid链接(Vue2+vuex+vant+axios)：https://github.com/WinWang/Vue-WanAndroid
 
-**Vue3版本**WanAndroid项目链接(vue3+typeScript+pinia+vant+vite)：https://github.com/WinWang/Vue3-wanAndroid
+**Vue3版本**WanAndroid链接(vue3+typeScript+pinia+vant+vite)：https://github.com/WinWang/Vue3-wanAndroid
 
 
 <div style="display: flex; flex-direction: row">
