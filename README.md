@@ -6,11 +6,13 @@ React移动端屏幕适配，axios网络拦截器的使用，React父子组件�
 
 ## 其他一些学习练手的项目
 
-**Flutter版本**OpenEye链接(getx+retrofit+dio+jsonserialize+自定义控件demo)：https://github.com/WinWang/open_eye
+**Flutter版本**OpenEye链接(getx+retrofit+dio+jsonserialize+自定义控件demo)：https://github.com/WinWang/open_eye  <br>
 
-**Vue2版本**WanAndroid链接(Vue2+vuex+vant+axios)：https://github.com/WinWang/Vue-WanAndroid
+**Flutter版本**的音乐播放App链接(getx+retrofit+dio)：https://github.com/WinWang/music_listener <br>
 
-**Vue3版本**WanAndroid链接(vue3+typeScript+pinia+vant+vite)：https://github.com/WinWang/Vue3-wanAndroid
+**Vue2版本**WanAndroid链接(Vue2+vuex+vant+axios)：https://github.com/WinWang/Vue-WanAndroid  <br>
+
+**Vue3版本**WanAndroid链接(vue3+typeScript+pinia+vant+vite)：https://github.com/WinWang/Vue3-wanAndroid  <br>
 
 <br/>
 
