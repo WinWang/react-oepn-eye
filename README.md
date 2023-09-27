@@ -10,9 +10,15 @@ React移动端屏幕适配，axios网络拦截器的使用，React父子组件�
 
 **Flutter版本**的音乐播放App链接(getx+retrofit+dio)：https://github.com/WinWang/music_listener <br>
 
+**ReactNative版本**的开眼App链接(ReactNative-0.72)：https://github.com/WinWang/RNOpenEye <br>
+
 **Vue2版本**WanAndroid链接(Vue2+vuex+vant+axios)：https://github.com/WinWang/Vue-WanAndroid  <br>
 
 **Vue3版本**WanAndroid链接(vue3+typeScript+pinia+vant+vite)：https://github.com/WinWang/Vue3-wanAndroid  <br>
+
+**Android组件化项目**ReadingGallery链接(jetpack+kotlin+koin+couroutine)：https://github.com/WinWang/ReadingGallery <br>
+
+**Android组件化项目初始化工具**ApplicationInit链接(gradle-plugin+注解APT+ASM)：https://github.com/WinWang/ApplicationInit <br>
 
 <br/>
 
